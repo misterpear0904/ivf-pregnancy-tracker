@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FAF7F2">
+<meta name="description" content="A calm, offline, clinically grounded dashboard for the first trimester after IVF.">
+<title>After the Transfer — Post-IVF Pregnancy Dashboard</title>
+<style>
+/*__CSS__*/
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="shell">
+  <aside class="sidebar" aria-label="Sidebar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg>
+      </div>
+      <div>
+        <div class="brand-name">After the Transfer</div>
+        <div class="brand-sub">First trimester</div>
+      </div>
+    </div>
+
+    <nav class="side-nav" role="tablist" aria-label="Primary" data-tablist="side">
+      <button role="tab" data-view="today" aria-selected="true" aria-controls="view-today" id="tab-today">
+        <svg class="nav-ico icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+        Today
+      </button>
+      <button role="tab" data-view="protocol" aria-selected="false" aria-controls="view-protocol" id="tab-protocol">
+        <svg class="nav-ico icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v4H8z"/><path d="M6 5H4v16h16V5h-2"/><path d="M8 12h8M8 16h5"/></svg>
+        Protocol
+      </button>
+      <button role="tab" data-view="checkin" aria-selected="false" aria-controls="view-checkin" id="tab-checkin">
+        <svg class="nav-ico icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/><path d="M9 11h2l1-2 1 4 1-2h2"/></svg>
+        Check-in
+      </button>
+      <button role="tab" data-view="baby" aria-selected="false" aria-controls="view-baby" id="tab-baby">
+        <svg class="nav-ico icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M9 10h.01M15 10h.01M9 15c1.5 1 4.5 1 6 0"/></svg>
+        Little One
+      </button>
+    </nav>
+
+    <div class="side-foot">
+      <button class="btn btn-urgent btn-block" data-action="open-safety">
+        <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 9v5M12 17h.01"/></svg>
+        Safety — get help
+      </button>
+      <button class="btn btn-block" data-action="goto-learn">
+        <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"/></svg>
+        Learn / FAQ
+      </button>
+      <button class="btn btn-block" data-action="open-settings">
+        <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3 1a7 7 0 0 0-2-1.2L14.2 3h-4l-.4 2.5a7 7 0 0 0-2 1.2l-2.3-1-2 3.4 2 1.5a7 7 0 0 0 0 2.4l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 2 1.2l.4 2.5h4l.4-2.5a7 7 0 0 0 2-1.2l2.3 1 2-3.4-2-1.5c.06-.4.1-.8.1-1.2Z"/></svg>
+        Settings &amp; my protocol
+      </button>
+      <button class="btn btn-block" data-action="goto-learn">
+        <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"/></svg>
+        Learn / FAQ
+      </button>
+      <p class="fine">Education, not medical advice. Your clinic's plan always wins.</p>
+    </div>
+  </aside>
+
+  <div class="main" id="main">
+    <header class="topbar">
+      <div class="mobile-brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg>
+        </div>
+        <div class="brand-name">After the Transfer</div>
+      </div>
+      <div class="topbar-title">
+        <strong id="topbarTitle">Today</strong>
+        <span class="topbar-date" id="topbarDate"></span>
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" data-action="open-settings" aria-label="Open settings">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3 1a7 7 0 0 0-2-1.2L14.2 3h-4l-.4 2.5a7 7 0 0 0-2 1.2l-2.3-1-2 3.4 2 1.5a7 7 0 0 0 0 2.4l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 2 1.2l.4 2.5h4l.4-2.5a7 7 0 0 0 2-1.2l2.3 1 2-3.4-2-1.5c.06-.4.1-.8.1-1.2Z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div id="storageBanner" class="banner banner-urgent" role="alert" hidden>
+      <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 9v5M12 17h.01"/></svg>
+      <span id="storageBannerText">Saving isn't working in this browser. Your entries last until you close this tab — export a copy from Settings.</span>
+    </div>
+    <div id="demoBanner" class="banner" hidden>
+      <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+      <span>Demo mode — not your data. Nothing here saves, and this seed resets anytime.</span>
+      <button class="link-btn" data-action="exit-demo">Exit demo</button>
+    </div>
+
+    <section class="view" id="view-today" role="tabpanel" aria-labelledby="tab-today" tabindex="-1"></section>
+    <section class="view" id="view-protocol" role="tabpanel" aria-labelledby="tab-protocol" tabindex="-1" hidden></section>
+    <section class="view" id="view-checkin" role="tabpanel" aria-labelledby="tab-checkin" tabindex="-1" hidden></section>
+    <section class="view" id="view-baby" role="tabpanel" aria-labelledby="tab-baby" tabindex="-1" hidden></section>
+    <section class="view" id="view-learn" role="tabpanel" aria-label="Learn and FAQ" tabindex="-1" hidden></section>
+
+    <section class="print-only" id="printSafety" aria-hidden="true"></section>
+  </div>
+</div>
+
+<nav class="bottom-nav" aria-label="Primary">
+  <div class="tablist" role="tablist" aria-label="Primary">
+    <button role="tab" data-view="today" aria-selected="true" aria-controls="view-today">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+      Today
+    </button>
+    <button role="tab" data-view="protocol" aria-selected="false" aria-controls="view-protocol">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v4H8z"/><path d="M6 5H4v16h16V5h-2"/><path d="M8 12h8M8 16h5"/></svg>
+      Protocol
+    </button>
+    <button role="tab" data-view="checkin" aria-selected="false" aria-controls="view-checkin">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/><path d="M9 11h2l1-2 1 4 1-2h2"/></svg>
+      Check-in
+    </button>
+    <button role="tab" data-view="baby" aria-selected="false" aria-controls="view-baby">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M9 10h.01M15 10h.01M9 15c1.5 1 4.5 1 6 0"/></svg>
+      Little One
+    </button>
+  </div>
+  <button class="nav-safety" data-action="open-safety" aria-haspopup="dialog">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 9v5M12 17h.01"/></svg>
+    Safety
+  </button>
+</nav>
+
+<dialog class="modal" id="safetyModal" aria-labelledby="safetyTitle">
+  <div class="modal-head">
+    <div>
+      <div class="eyebrow">Get help now</div>
+      <h2 id="safetyTitle">Safety</h2>
+    </div>
+    <button class="icon-btn modal-close" data-action="close-modal" aria-label="Close safety panel">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="modal-body" id="safetyBody"></div>
+</dialog>
+
+<dialog class="modal" id="settingsModal" aria-labelledby="settingsTitle">
+  <div class="modal-head">
+    <div>
+      <div class="eyebrow">Make it yours</div>
+      <h2 id="settingsTitle">Settings &amp; my protocol</h2>
+    </div>
+    <button class="icon-btn modal-close" data-action="close-modal" aria-label="Close settings">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <form id="settingsForm">
+    <div class="modal-body" id="settingsBody"></div>
+    <div class="modal-foot">
+      <button type="button" class="btn" data-action="close-modal">Cancel</button>
+      <button type="submit" class="btn btn-primary">Save changes</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="modal" id="apptModal" aria-labelledby="apptTitle">
+  <div class="modal-head">
+    <div>
+      <div class="eyebrow">What to expect</div>
+      <h2 id="apptTitle">Appointment</h2>
+    </div>
+    <button class="icon-btn modal-close" data-action="close-modal" aria-label="Close appointment details">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="modal-body" id="apptBody"></div>
+</dialog>
+
+<dialog class="modal" id="missedModal" aria-labelledby="missedTitle">
+  <div class="modal-head">
+    <div>
+      <div class="eyebrow">No judgment</div>
+      <h2 id="missedTitle">Missed a dose</h2>
+    </div>
+    <button class="icon-btn modal-close" data-action="close-modal" aria-label="Close missed-dose help">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="modal-body" id="missedBody"></div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<div class="onboard" id="onboarding" hidden>
+  <div class="card onboard-card">
+    <div class="onboard-progress" id="obProgress" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
+    <div id="obBody"></div>
+  </div>
+</div>
+
+<script>
+/*__JS__*/
+</script>
+</body>
+</html>
